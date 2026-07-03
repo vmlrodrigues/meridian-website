@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian — know your daylight</title>
+<style>
+  :root { color-scheme: dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-rounded, -apple-system, "SF Pro Rounded", system-ui, sans-serif;
+    background: linear-gradient(180deg, #0a0e2e 0%, #1e2a55 55%, #7a4e68 85%, #f2a65e 100%);
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+  }
+  .sun {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: radial-gradient(circle, #fffbe8 0%, #ffd27a 55%, rgba(255, 190, 90, 0) 75%);
+    margin: 0 auto 1.2rem;
+    box-shadow: 0 0 60px 20px rgba(255, 200, 120, 0.35);
+  }
+  h1 { font-size: 2.6rem; font-weight: 600; letter-spacing: 0.01em; }
+  p.tagline { margin-top: 0.8rem; font-size: 1.15rem; color: rgba(255,255,255,0.8); max-width: 34rem; }
+  .links { margin-top: 2.2rem; font-size: 0.95rem; }
+  .links a { color: rgba(255,255,255,0.75); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 1px; }
+  .links a:hover { color: #fff; }
+</style>
+</head>
+<body>
+  <main>
+    <div class="sun" aria-hidden="true"></div>
+    <h1>Meridian</h1>
+    <p class="tagline">See exactly where the Sun is in your sky, and how your daylight is changing — precise, beautiful, and entirely on your device.</p>
+    <p class="links"><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="mailto:support@jeunj.com">Support</a></p>
+  </main>
+</body>
+</html>
