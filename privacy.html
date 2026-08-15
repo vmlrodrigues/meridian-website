@@ -18,7 +18,10 @@
   h1 { font-size: 1.9rem; font-weight: 600; margin-bottom: 0.4rem; }
   .updated { color: rgba(255,255,255,0.55); font-size: 0.9rem; margin-bottom: 2rem; }
   h2 { font-size: 1.15rem; font-weight: 600; margin: 1.8rem 0 0.5rem; color: #ffd27a; }
+  h3 { font-size: 1rem; font-weight: 600; margin: 1.2rem 0 0.4rem; }
   p { margin-bottom: 0.9rem; }
+  ul { margin: 0 0 0.9rem 1.2rem; }
+  li { margin-bottom: 0.35rem; }
   a { color: #ffd27a; }
   .back { display: inline-block; margin-bottom: 2rem; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; }
 </style>
@@ -27,26 +30,80 @@
 <main>
   <a class="back" href="index.html">← Meridian</a>
   <h1>Privacy Policy</h1>
-  <p class="updated">Effective 12 July 2026</p>
+  <p class="updated">Effective 15 August 2026 · Covers Meridian for iPhone and Meridian for Android</p>
 
-  <p><strong>Meridian does not collect, store, or transmit any personal data. Period.</strong></p>
+  <p>Meridian is an app about daylight. To tell you when the Sun rises where you are, it has to know roughly where you are. This page says exactly what it does with that, and what it never does.</p>
 
-  <h2>Location</h2>
-  <p>Meridian uses your device's location to show the Sun's position and your daylight hours for where you are. All sun calculations happen on your device, entirely offline. To turn your location into a place name — and for city search — the coordinates are sent to Apple Maps, governed by <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. They're never sent to us, never stored on our servers, and never shared with anyone else.</p>
-  <p>Location access is optional. You can decline it and choose a city manually instead.</p>
+  <h2>The short version</h2>
+  <ul>
+    <li>There is no Meridian server. Nothing you do in the app reaches me, ever.</li>
+    <li>No account, no sign-in, and no identifier of any kind.</li>
+    <li>No analytics, no crash reporting, no advertising, no tracking, and no third-party SDKs that do any of those things.</li>
+    <li>Your location stays on your phone. Two things leave it, both described below, and neither is stored anywhere by me.</li>
+  </ul>
 
-  <h2>What we don't do</h2>
-  <p>There are no accounts, no sign-ins, no analytics, no advertising, no tracking, and no third-party SDKs. Meridian makes no network requests for its core function. Optional city search and the map picker use Apple's MapKit services, governed by <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>; Meridian itself receives and retains nothing from those lookups beyond the coordinates you chose, stored only on your device.</p>
+  <h2>What Meridian does with your location</h2>
+  <p>With your permission, Meridian reads your device's position and uses it to work out your sunrise, sunset, twilights, the Sun's height and direction, the Moon's phase and rise and set, and the shape of your year. <strong>All of that arithmetic happens on your phone.</strong> No part of it is sent anywhere.</p>
+  <p>The thirty-year cloud record on the This Place screen is the same: that data ships inside the app and is read from local storage. Looking at it makes no network request at all.</p>
+  <p>Location is optional. Decline it and the app still works — it opens on a default sky, and you can search for any place you like.</p>
+  <p>Places you save, the skies you star, and the last position the app resolved are kept in your device's own app storage. They are removed when you delete the app. They are never uploaded.</p>
 
-  <h2>Data stored on your device</h2>
-  <p>Your chosen and saved locations are stored locally on your device and nowhere else. Deleting the app deletes them.</p>
-  <p>The Home Screen and Lock Screen widgets read your saved place from that on-device storage and compute their sun times locally as well — they make no network requests and send nothing anywhere.</p>
+  <h2>What leaves your device</h2>
+  <p>Two things, and only two. They differ between the platforms, so they are listed separately.</p>
+
+  <h3>On iPhone</h3>
+  <ul>
+    <li><strong>The weather forecast</strong> is requested from Apple WeatherKit, using your coordinate.</li>
+    <li><strong>Naming a place</strong> — turning a coordinate into a suburb, or finding a city you have typed — uses Apple's geocoding service through the operating system.</li>
+  </ul>
+  <p>Both are Apple services, governed by <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. Apple states that WeatherKit location data is not used to identify you or build a profile.</p>
+
+  <h3>On Android</h3>
+  <ul>
+    <li><strong>The weather forecast</strong> is requested from <a href="https://open-meteo.com/">Open-Meteo</a>, an independent open weather service. <strong>Your coordinate is rounded to about one kilometre before the request is made.</strong> Forecast models work at a resolution of several kilometres, so this changes nothing about the answer — it simply means the request describes a neighbourhood rather than an address. Open-Meteo receives no identifier, and there is no account or API key attached to the request.</li>
+    <li><strong>Naming a place</strong> uses Android's geocoder, which on most devices is provided by Google. This lookup needs your true position — an approximate one would name the wrong suburb — so it is not rounded. It runs only when your place actually changes, not continuously.</li>
+  </ul>
+  <p>Android obtains the position itself through the operating system's location services. What Google's own location services collect is governed by <a href="https://policies.google.com/privacy">Google's privacy policy</a> and by your device settings, and is outside Meridian's control.</p>
+
+  <h3>Why the two differ</h3>
+  <p>On iPhone the forecast goes to Apple, who already hold your device's position; rounding it would withhold nothing from anyone. On Android the forecast goes to an unrelated third party, so the coordinate is coarsened first. The difference is deliberate.</p>
+
+  <h2>Notifications</h2>
+  <p>Sunrise and sunset alerts, if you turn them on, are scheduled and delivered <strong>entirely on your device</strong>. There is no push server, no token, and no message that travels over a network. Your phone works out the times itself and sets its own alarms.</p>
+
+  <h2>Widgets</h2>
+  <p>Widgets read the place already saved on your device and compute what they show locally. They make no network request of their own.</p>
+
+  <h2>What Meridian never collects</h2>
+  <ul>
+    <li>Your name, email address, phone number or contacts</li>
+    <li>Any account, login, or user identifier</li>
+    <li>Advertising identifiers, or any data used for advertising</li>
+    <li>Analytics, usage statistics, or behavioural data</li>
+    <li>Crash reports containing your data</li>
+    <li>Photos, files, calendar, health data or anything else on your device</li>
+  </ul>
+  <p>Because none of it is collected, there is nothing of yours for me to sell, share, lose, or hand over. There is no database to breach.</p>
+
+  <h2>Children</h2>
+  <p>Meridian is not directed at children and collects nothing from anyone, including children.</p>
+
+  <h2>Your rights</h2>
+  <p>Rights of access, correction, deletion and portability all attach to personal information held by an organisation. I hold none: no data about you reaches me, so there is nothing to disclose, correct, export or erase on request. The coordinates and saved places on your device are yours — remove them by deleting a saved sky, revoking the location permission in system settings, or deleting the app.</p>
+
+  <h2>Third-party services</h2>
+  <ul>
+    <li><strong>Apple WeatherKit and Apple geocoding</strong> (iPhone) — see <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</li>
+    <li><strong>Open-Meteo</strong> (Android) — see <a href="https://open-meteo.com/en/terms">Open-Meteo's terms</a>.</li>
+    <li><strong>Google Play services</strong> (Android) — geocoding and location, see <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
+  </ul>
+  <p>Climate data is derived from ERA5, generated using Copernicus Climate Change Service information and redistributed by Open-Meteo under CC-BY-4.0. It ships inside the app; using it sends nothing.</p>
 
   <h2>Changes</h2>
-  <p>If this policy ever changes, the updated version will be posted at this address with a new effective date.</p>
+  <p>If what the apps do with data changes, this page changes with it and the effective date above moves. Meaningful changes will be noted in the app's release notes rather than made quietly.</p>
 
   <h2>Contact</h2>
-  <p>Questions? Email <a href="mailto:meridiansupport@jeunj.com">meridiansupport@jeunj.com</a>.</p>
+  <p>Questions about this policy, or about anything above — email <a href="mailto:meridiansupport@jeunj.com">meridiansupport@jeunj.com</a>.</p>
 </main>
 </body>
 </html>
